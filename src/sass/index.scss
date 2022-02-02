@@ -1,0 +1,109 @@
+@use "defaults" as *;
+@use "colors" as *;
+@use "elements" as *;
+
+body {
+  background-color: $bgr-color;
+}
+
+header {
+  // text-transform: uppercase;
+  font-family: "Calistoga", cursive;
+  font-size: 1.2rem;
+  color: $drk-color;
+  // background-color: #fff;
+  margin: 1em 0 2em;
+  padding: 1em;
+  border-radius: 10px;
+  display: grid;
+  grid-template-areas: ". knife .";
+
+  // h1 {
+  //   grid-area: knife;
+  //   z-index: 998;
+  // }
+  // div {
+  //   grid-area: knife;
+  //   width: 100%;
+  //   position: relative;
+  // }
+
+  // div::before {
+  //   position: absolute;
+  //   top: -14px;
+  //   left: -8px;
+  //   content: " ";
+  //   width: 330px;
+  //   background-color: #fff;
+  //   height: 6em;
+  //   border-radius: 0 0 15px 15px;
+  //   z-index: 0;
+  //   opacity: 0.5;
+  //   margin: 0;
+  // }
+  // div::after {
+  //   position: absolute;
+  //   top: -14px;
+  //   left: 322px;
+  //   content: " ";
+  //   width: 130px;
+  //   background-color: #fff;
+  //   height: 2em;
+  //   border-radius: 0 10px 10px 0;
+  //   z-index: 0;
+  //   opacity: 0.5;
+  //   margin: 0;
+  // }
+}
+
+span {
+  margin: 0.5em;
+  font-size: 1.2rem;
+}
+
+.input-area {
+  @extend %work-area;
+
+  .section-title {
+    grid-area: title;
+    @include section-title($pink-color);
+  }
+  form {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    @extend %card;
+    &:focus {
+      @extend %card-active;
+    }
+  }
+  #submit {
+    grid-area: control;
+    @include round-btn($pink-color, #fff);
+    margin-left: 2em;
+    align-self: end;
+  }
+}
+
+.output-area {
+  @extend %work-area;
+
+  .section-title {
+    grid-area: title;
+    @include section-title($pink-color);
+  }
+  .results {
+    grid-area: content;
+    @extend %card;
+  }
+
+  #copy {
+    grid-area: control;
+    @include round-btn($pink-color, #fff);
+    margin-left: 2em;
+    align-self: end;
+  }
+}

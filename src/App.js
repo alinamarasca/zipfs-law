@@ -1,24 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useState } from "react";
+
+import Header from "./components/Header";
+import Input from "./components/Input";
+import Output from "./components/Output";
+import AboutPage from "./components/pages/AboutPage";
+import StatsContext from "./context/StatsContext";
+
+import textLength from "./logic/textLength";
+import totalLetters from "./logic/totalLetters";
+import totalDigits from "./logic/totalDigits";
+import shortestWord from "./logic/shortestWord";
+import shortestWords from "./logic/shortestWords";
+import longestWord from "./logic/longestWord";
+import longestWords from "./logic/longestWords";
+import countWords from "./logic/countWords";
 
 function App() {
+  const [stats, setStats] = useState({
+    totalLetters: 0,
+    totalWords: 0,
+    totalDigits: 0,
+    shortestWord: 0,
+    shortestWords: [],
+    longestWord: 0,
+    longestWords: [],
+    wordChart: []
+  });
+
+  const updateStats = text => {
+    setStats({
+      totalWords: textLength(text),
+      totalLetters: totalLetters(text),
+      totalDigits: totalDigits(text),
+      shortestWord: shortestWord(text),
+      shortestWords: shortestWords(text),
+      longestWord: longestWord(text),
+      longestWords: longestWords(text),
+      wordChart: countWords(text)
+    });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <StatsContext.Provider value={{ stats, updateStats }}>
+        <Router>
+          <div className="wrapper">
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <Header />
+                    <Input />
+                    <Output />
+                  </>
+                }
+              ></Route>
+
+              <Route path="/about" element={<AboutPage />}></Route>
+            </Routes>
+          </div>
+        </Router>
+      </StatsContext.Provider>
+    </>
   );
 }
 

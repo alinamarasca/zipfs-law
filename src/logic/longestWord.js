@@ -1,8 +1,7 @@
-const longestWord = text => {
-  const digitsRemoved = text.replace(/[0-9]/g, "");
-  // find the shortest word
+import textToArray from "./textToArray";
 
-  const words = digitsRemoved.split(" ");
+const longestWord = text => {
+  const words = textToArray(text);
   const longest = words.reduce((longestWord, currentWord) => {
     return currentWord.length > longestWord.length ? currentWord : longestWord;
   }, words[0]);

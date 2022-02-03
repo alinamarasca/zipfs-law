@@ -9,7 +9,7 @@ const shortestWords = text => {
   array.forEach(word => {
     if (word.length === length) words.push(word);
   });
-  return words;
+  return [...new Set(words)];
 };
 
 export default shortestWords;

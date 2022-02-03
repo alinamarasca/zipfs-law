@@ -1,8 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
-import countWords from "../logic/countWords";
-import textToArray from "../logic/textToArray";
 
 function WordChart() {
   const { stats } = useContext(StatsContext);
@@ -10,8 +7,10 @@ function WordChart() {
 
   return (
     <div className="one-word">
-      {stats.wordChart.map(item => (
-        <p>{item}</p>
+      {chart.map(v => (
+        <p key={v.word}>
+          {v.word}: {v.occurrences}
+        </p>
       ))}
     </div>
   );

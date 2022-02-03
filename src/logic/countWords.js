@@ -1,23 +1,18 @@
 import textToArray from "./textToArray";
 
 const countWords = text => {
-  let arr = textToArray(text);
-  let stats = [];
-  let count = 1;
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === arr[i + 1]) {
-      count++;
-    } else {
-      let word = `${arr[i]}`;
-      let occurrence = `${count}`;
-      let pair = new Map();
-      pair.set(word, occurrence);
-      stats = [...stats, pair];
-      count = 1;
-    }
+  const arr = textToArray(text),
+    wordMap = new Map();
+  for (const word of arr) {
+    wordMap.has(word)
+      ? wordMap.set(word, wordMap.get(word) + 1)
+      : wordMap.set(word, 1);
   }
-  console.log(stats);
-  return stats;
+
+  // we should return array because it's easier to iterate
+  return Array.from(wordMap, ([key, value]) => {
+    return { word: key, occurrences: value };
+  });
 };
 
 export default countWords;

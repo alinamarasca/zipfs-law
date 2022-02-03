@@ -7,9 +7,10 @@ function WordChart() {
 
   return (
     <div className="one-word">
-      {chart.map(v => (
-        <p key={v.word}>
-          {v.word}: {v.occurrences}
+      <h3>Words frequency:</h3>
+      {chart.map(w => (
+        <p key={w.word}>
+          {w.word}: <span>{w.occurrences}</span>
         </p>
       ))}
     </div>

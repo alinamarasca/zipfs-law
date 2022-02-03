@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Input from "./components/Input";
 import Output from "./components/Output";
 import AboutPage from "./components/pages/AboutPage";
+import AboutIconLink from "./components/AboutIconLink";
 import StatsContext from "./context/StatsContext";
 
 import textLength from "./logic/textLength";
@@ -44,25 +45,25 @@ function App() {
   return (
     <>
       <StatsContext.Provider value={{ stats, updateStats }}>
-        <Router>
-          <div className="wrapper">
+        <div className="wrapper">
+          <Header />
+          <Router>
             <Routes>
               <Route
                 exact
                 path="/"
                 element={
                   <>
-                    <Header />
                     <Input />
                     <Output />
+                    {window.location.pathname !== "/about" && <AboutIconLink />}
                   </>
                 }
               ></Route>
-
               <Route path="/about" element={<AboutPage />}></Route>
             </Routes>
-          </div>
-        </Router>
+          </Router>
+        </div>
       </StatsContext.Provider>
     </>
   );

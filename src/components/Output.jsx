@@ -1,6 +1,7 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import StatsContext from "../context/StatsContext";
 import WordChart from "./WordChart";
+// import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Output() {
   const { stats } = useContext(StatsContext);
@@ -10,33 +11,26 @@ function Output() {
       <p className="section-title">Your text has:</p>
       <div className="results" id="results">
         <p>
-          <span>{stats.totalWords}</span> words.
+          Total letters:<span>{stats.totalLetters}</span>
         </p>
         <p>
-          <span>{stats.totalLetters}</span> letters.
+          Total digits:<span>{stats.totalDigits}</span>
         </p>
         <p>
-          <span>{stats.totalDigits}</span> digits.
+          Total words: <span>{stats.totalWords}</span>
         </p>
         <p>
-          The shortest word is <span>{stats.shortestWord}</span> character long:{" "}
-          {stats.shortestWords.join(", ")}
+          The shortest words are <span>{stats.shortestWord}</span> character
+          long: {stats.shortestWords.join(", ")}
         </p>
         <p>
-          The longest word is <span>{stats.longestWord}</span> character long:{" "}
-          {stats.longestWords.join(", ")}.
+          The longest words are <span>{stats.longestWord}</span> character long:{" "}
+          {stats.longestWords.join(", ")}
         </p>
         <WordChart />
       </div>
-      <button
-        onClick={e => {
-          console.log("o copy");
-        }}
-        id="copy"
-      >
-        {" "}
-        Copy{" "}
-      </button>
+
+      <button id="copy"> Copy </button>
     </div>
   );
 }

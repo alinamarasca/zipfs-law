@@ -1,0 +1,16 @@
+@use "colors" as *;
+
+body {
+  background-color: $bgr-color;
+}
+
+header {
+  font-family: "Calistoga", cursive;
+  font-size: 1.2rem;
+  color: $drk-color;
+  margin: 1em 0 2em;
+  padding: 1em;
+  border-radius: 10px;
+  display: grid;
+  grid-template-areas: ". knife .";
+}

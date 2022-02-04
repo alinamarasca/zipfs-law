@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
+article, .input-area textarea, .output-area .results {
+  background-color: #fff;
+  width: 100%;
+  min-height: 300px;
+  height: fit-content;
+  border-radius: 4px;
+  border: none;
+  padding: 1em;
+  margin: auto;
+}
+
+.input-area textarea:focus {
+  outline: none;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
+}
+
+.input-area, .output-area {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: 700px 100px;
+  grid-template-areas: "title ." "content control";
+}
+
+body {
+  background-color: #e097a6;
+}
+
+header {
+  font-family: "Calistoga", cursive;
+  font-size: 1.2rem;
+  color: #69303b;
+  margin: 1em 0 2em;
+  padding: 1em;
+  border-radius: 10px;
+  display: grid;
+  grid-template-areas: ". knife .";
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.125rem;
+  font-family: sans-serif;
+  line-height: 150%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+span {
+  margin: 0.5em;
+  font-size: 1.2rem;
+}
+
+.input-area .section-title {
+  grid-area: title;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #952349;
+  font-size: 2rem;
+  opacity: 0.6;
+}
+.input-area form {
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+}
+.input-area #submit {
+  grid-area: control;
+  background-color: #952349;
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  color: #fff;
+  padding: 0.6em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  z-index: 999;
+  margin-left: 2em;
+  align-self: end;
+}
+.input-area #submit:hover {
+  background-color: #69303b;
+}
+
+.output-area .section-title {
+  grid-area: title;
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #952349;
+  font-size: 2rem;
+  opacity: 0.6;
+}
+.output-area .results {
+  grid-area: content;
+}
+.output-area #copy {
+  grid-area: control;
+  background-color: #952349;
+  border-radius: 50%;
+  width: 6em;
+  height: 6em;
+  color: #fff;
+  padding: 0.6em;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  z-index: 999;
+  margin-left: 2em;
+  align-self: end;
+}
+.output-area #copy:hover {
+  background-color: #69303b;
+}
+
+a {
+  text-decoration: none;
+  color: #69303b;
+}
+
+article {
+  height: fit-content;
+  width: 100%;
+}
+
+.back-home {
+  margin-top: 2rem;
+}
+
+.about-link {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1em;
+}
+
+/*# sourceMappingURL=index.css.map */

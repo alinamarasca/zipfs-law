@@ -37,6 +37,7 @@ span {
 
 .output-area {
   @extend %work-area;
+  margin-bottom: 2rem;
 
   .section-title {
     grid-area: title;

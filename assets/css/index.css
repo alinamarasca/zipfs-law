@@ -99,6 +99,9 @@ span {
   background-color: #69303b;
 }
 
+.output-area {
+  margin-bottom: 2rem;
+}
 .output-area .section-title {
   grid-area: title;
   text-transform: uppercase;

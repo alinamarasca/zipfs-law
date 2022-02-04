@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import StatsContext from "../context/StatsContext";
 // import sortResults from "../logic/sortingOptions";
 
 function WordChart() {
   const { stats } = useContext(StatsContext);
   let chart = stats.wordChart;
-
+  const [data, setData] = useState([]);
   const highToLowOccurrence = arr => {
     const sorted = arr.sort((a, b) => (a.occurrences < b.occurrences ? 1 : -1));
     return sorted;
@@ -28,10 +28,9 @@ function WordChart() {
 
   const sortResults = e => {
     const sortBy = e.target.value;
-    console.log(sortBy);
-
+    let sorted = [];
     if (sortBy === "low-high") {
-      chart = lowToHighOccurrence(chart);
+      sorted = lowToHighOccurrence(chart);
     }
     if (sortBy === "high-low") {
       chart = highToLowOccurrence(chart);
@@ -42,8 +41,7 @@ function WordChart() {
     if (sortBy === "z-a") {
       chart = reversedAlphabeticalOrder(chart);
     }
-    console.log(chart);
-    return chart;
+    setData(sorted);
   };
 
   return (

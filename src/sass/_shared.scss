@@ -14,3 +14,24 @@ header {
   display: grid;
   grid-template-areas: ". knife .";
 }
+
+.sub-header {
+  color: $drk-color;
+  text-transform: uppercase;
+  margin: 0.3rem auto;
+}
+
+.about-link {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 1em;
+  opacity: 0.6;
+
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -7,6 +7,9 @@
   border: none;
   padding: 1em;
   margin: auto;
+
+  @media only screen and (max-width: 800px) {
+  }
 }
 
 %card-active {
@@ -25,12 +28,19 @@
 }
 
 %work-area {
+  max-width: 900px;
+  // background-color: aqua;
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: 700px 100px;
+  grid-template-columns: minmax(300px, 900px) 1fr;
   grid-template-areas:
     "title ."
     "content control";
+
+  @media only screen and (max-width: 1000px) {
+    display: block;
+    width: 100%;
+  }
 }
 @mixin round-btn($bgr-color, $text-color) {
   background-color: $bgr-color;
@@ -54,4 +64,31 @@
       $lightness: -6%
     );
   }
+
+  @media only screen and (max-width: 800px) {
+    font-size: 0.8rem;
+  }
+}
+
+%sort-btn {
+  font-size: 1rem;
+  width: 150px;
+  height: 2em;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: baseline;
+  gap: 0.5rem;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+%control {
+  grid-area: control;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }

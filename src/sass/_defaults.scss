@@ -12,6 +12,12 @@ body {
   line-height: 150%;
 }
 
+button,
+.submit {
+  border: none;
+  cursor: pointer;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;

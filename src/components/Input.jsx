@@ -15,17 +15,20 @@ function Input() {
           id="input"
         ></textarea>
       </form>
-      <input
-        onClick={e => {
-          e.preventDefault();
-          if (text.length !== 0) {
-            updateStats(text);
-          }
-        }}
-        form="text"
-        type="submit"
-        id="submit"
-      />
+      <div className="control input-control">
+        <input
+          onClick={e => {
+            e.preventDefault();
+            if (text.length !== 0) {
+              updateStats(text);
+            }
+          }}
+          form="text"
+          type="submit"
+          id="submit"
+          className="submit"
+        />
+      </div>
     </div>
   );
 }

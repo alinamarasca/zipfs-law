@@ -27,10 +27,13 @@ span {
       @extend %card-active;
     }
   }
+  .control {
+    @extend %control;
+  }
   #submit {
     grid-area: control;
     @include round-btn($pink-color, #fff);
-    margin-left: 2em;
+    margin: 0 auto;
     align-self: end;
   }
 }
@@ -47,11 +50,24 @@ span {
     grid-area: content;
     @extend %card;
   }
+}
+
+.control {
+  @extend %control;
+  .sort {
+    @extend %sort-btn;
+    background-color: $pink-color;
+    color: #fff;
+    margin: 0.5rem;
+  }
 
   #copy {
-    grid-area: control;
     @include round-btn($pink-color, #fff);
-    margin-left: 2em;
-    align-self: end;
+    margin: auto;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: flex;
+    flex-wrap: wrap;
   }
 }

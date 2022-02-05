@@ -1,11 +1,13 @@
 import React, { useContext, useState } from "react";
 import StatsContext from "../context/StatsContext";
-// import sortResults from "../logic/sortingOptions";
+import {
+  FaSortAlphaDown,
+  FaSortAlphaDownAlt,
+  FaSortAmountDownAlt,
+  FaSortAmountDown
+} from "react-icons/fa";
 
 function WordChart() {
-  const { stats } = useContext(StatsContext);
-  let chart = stats.wordChart;
-  const [data, setData] = useState([]);
   const highToLowOccurrence = arr => {
     const sorted = arr.sort((a, b) => (a.occurrences < b.occurrences ? 1 : -1));
     return sorted;
@@ -26,9 +28,14 @@ function WordChart() {
     return sorted;
   };
 
+  const { stats } = useContext(StatsContext);
+  let chart = stats.wordChart;
+  const [data, setData] = useState([...chart]);
+
   const sortResults = e => {
     const sortBy = e.target.value;
     let sorted = [];
+
     if (sortBy === "low-high") {
       sorted = lowToHighOccurrence(chart);
     }
@@ -46,17 +53,25 @@ function WordChart() {
 
   return (
     <div className="one-word">
-      <h3>Words frequency:</h3>
+      <h3 className="sub-header">Words frequency:</h3>
       <div
         className="sorting-options"
         onClick={e => {
           sortResults(e);
         }}
       >
-        <button value="low-high">low high</button>
-        <button value="high-low">high low</button>
-        <button value="a-z">a-z</button>
-        <button value="z-a">z-a</button>
+        <button className="sort" value="low-high">
+          <FaSortAmountDownAlt /> frequency
+        </button>
+        <button className="sort" value="high-low">
+          <FaSortAmountDown /> frequency
+        </button>
+        <button className="sort" value="a-z">
+          <FaSortAlphaDown /> alphabetical
+        </button>
+        <button className="sort" value="z-a">
+          <FaSortAlphaDownAlt /> alphabetical
+        </button>
       </div>
       <div className="calc">
         {chart.map(w => (

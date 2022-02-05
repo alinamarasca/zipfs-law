@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import WordChart from "./WordChart";
 // import { CopyToClipboard } from "react-copy-to-clipboard";
@@ -30,7 +30,12 @@ function Output() {
         <WordChart />
       </div>
 
-      <button id="copy"> Copy </button>
+      <div className="control output-control">
+        <button id="copy" className="submit">
+          {" "}
+          Copy{" "}
+        </button>
+      </div>
     </div>
   );
 }

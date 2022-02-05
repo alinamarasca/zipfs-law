@@ -53,17 +53,22 @@ function App() {
             <Routes>
               <Route
                 exact
-                path="/"
+                path="/zipfs-law/index"
                 element={
                   <>
                     <Input />
                     <Output />
-                    {window.location.pathname !== "/about" && <AboutIconLink />}
+                    {window.location.pathname !== "/zipfs-law/about" && (
+                      <AboutIconLink />
+                    )}
                   </>
                 }
               ></Route>
-              <Route path="/about" element={<AboutPage />}></Route>
-              <Route path="/*" element={<Navigate to="/" />} />
+              <Route path="/zipfs-law/about" element={<AboutPage />}></Route>
+              <Route
+                path="/zipfs-law/*"
+                element={<Navigate to="/zipfs-law/index" />}
+              />
             </Routes>
           </Router>
         </div>

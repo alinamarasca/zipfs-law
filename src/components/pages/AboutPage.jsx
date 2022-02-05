@@ -37,7 +37,7 @@ function AboutPage() {
         </p>
       </article>
       <p className="back-home">
-        <Link to="/">Back To Home</Link>
+        <Link to="/zipfs-law/index">Back To Home</Link>
       </p>
     </div>
   );

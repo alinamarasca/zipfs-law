@@ -66,7 +66,7 @@ function App() {
               ></Route>
               <Route path="/zipfs-law/about" element={<AboutPage />}></Route>
               <Route
-                path="/zipfs-law/*"
+                path="/zipfs-law"
                 element={<Navigate to="/zipfs-law/index" />}
               />
             </Routes>

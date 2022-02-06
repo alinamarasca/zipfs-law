@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -46,33 +47,35 @@ function App() {
 
   return (
     <>
-      <StatsContext.Provider value={{ stats, updateStats }}>
-        <div className="wrapper">
-          <Header />
-          <Router>
-            <Routes>
-              <Route
-                exact
-                path="/zipfs-law/index"
-                element={
-                  <>
-                    <Input />
-                    <Output />
-                    {window.location.pathname !== "/zipfs-law/about" && (
-                      <AboutIconLink />
-                    )}
-                  </>
-                }
-              ></Route>
-              <Route path="/zipfs-law/about" element={<AboutPage />}></Route>
-              <Route
-                path="/zipfs-law"
-                element={<Navigate to="/zipfs-law/index" />}
-              />
-            </Routes>
-          </Router>
-        </div>
-      </StatsContext.Provider>
+      <React.StrictMode>
+        <StatsContext.Provider value={{ stats, updateStats }}>
+          <div className="wrapper">
+            <Header />
+            <Router>
+              <Routes>
+                <Route
+                  exact
+                  path="/zipfs-law/index"
+                  element={
+                    <>
+                      <Input />
+                      <Output />
+                      {window.location.pathname !== "/zipfs-law/about" && (
+                        <AboutIconLink />
+                      )}
+                    </>
+                  }
+                ></Route>
+                <Route path="/zipfs-law/about" element={<AboutPage />}></Route>
+                <Route
+                  path="/zipfs-law"
+                  element={<Navigate to="/zipfs-law/index" />}
+                />
+              </Routes>
+            </Router>
+          </div>
+        </StatsContext.Provider>
+      </React.StrictMode>
     </>
   );
 }

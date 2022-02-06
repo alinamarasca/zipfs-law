@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Calistoga&display=swap");
-article, .input-area textarea, .output-area .results {
+.input-area textarea, .output-area .results, article {
   background-color: #fff;
   width: 100%;
   min-height: 300px;

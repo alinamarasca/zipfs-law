@@ -1,2 +1,90 @@
-@use "main";
-@use "about";
+@use "colors" as *;
+@use "elements" as *;
+@use "shared";
+@use "defaults";
+
+span {
+  margin: 0.5em;
+  font-size: 1.2rem;
+}
+
+.input-area {
+  @extend %work-area;
+
+  .section-title {
+    grid-area: title;
+    @include section-title($pink-color);
+  }
+  form {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  textarea {
+    @extend %card;
+    &:focus {
+      @extend %card-active;
+    }
+  }
+  .control {
+    @extend %control;
+  }
+  #submit {
+    grid-area: control;
+    @include round-btn($pink-color, #fff);
+    margin: 0 auto;
+    align-self: end;
+  }
+}
+
+.output-area {
+  @extend %work-area;
+  margin-bottom: 2rem;
+
+  .section-title {
+    grid-area: title;
+    @include section-title($pink-color);
+  }
+  .results {
+    grid-area: content;
+    @extend %card;
+  }
+}
+
+.control {
+  @extend %control;
+  .sort {
+    @extend %sort-btn;
+    background-color: $pink-color;
+    color: #fff;
+    margin: 0.5rem;
+  }
+
+  #copy {
+    @include round-btn($pink-color, #fff);
+    margin: auto;
+  }
+
+  @media only screen and (max-width: 800px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+//about
+
+a {
+  text-decoration: none;
+  color: $drk-color;
+}
+
+article {
+  @extend %card;
+  height: fit-content;
+  width: 100%;
+}
+
+.back-home {
+  margin-top: 2rem;
+}

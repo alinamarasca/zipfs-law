@@ -31,7 +31,6 @@
 
 %work-area {
   max-width: 900px;
-  // background-color: aqua;
   margin-top: 2rem;
   display: grid;
   grid-template-columns: minmax(300px, 900px) 1fr;
@@ -39,10 +38,10 @@
     "title ."
     "content control";
 
-  @media only screen and (max-width: 1000px) {
-    display: block;
-    width: 100%;
-  }
+  // @media only screen and (max-width: 1000px) {
+  //   display: grid;
+  //   width: 100%;
+  // }
 }
 @mixin round-btn($bgr-color, $text-color) {
   background-color: $bgr-color;
@@ -91,7 +90,11 @@
 
 %control {
   grid-area: control;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  position: relative;
+
+  .submit {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+  }
 }

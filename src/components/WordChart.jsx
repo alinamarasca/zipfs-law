@@ -30,7 +30,7 @@ function WordChart() {
 
   const { stats } = useContext(StatsContext);
   let chart = stats.wordChart;
-  const [data, setData] = useState([...chart]);
+  const [data, setData] = useState([chart]);
 
   const sortResults = e => {
     const sortBy = e.target.value;
@@ -52,28 +52,30 @@ function WordChart() {
   };
 
   return (
-    <div className="one-word">
-      <h3 className="sub-header">Words frequency:</h3>
+    <div className="word-frequency">
+      <h3 className="sub-header" id="frequency-header">
+        Words frequency:
+      </h3>
       <div
         className="sorting-options"
         onClick={e => {
           sortResults(e);
         }}
       >
-        <button className="sort" value="low-high">
+        <button className="sort-btn" value="low-high">
           <FaSortAmountDownAlt /> frequency
         </button>
-        <button className="sort" value="high-low">
+        <button className="sort-btn" value="high-low">
           <FaSortAmountDown /> frequency
         </button>
-        <button className="sort" value="a-z">
+        <button className="sort-btn" value="a-z">
           <FaSortAlphaDown /> alphabetical
         </button>
-        <button className="sort" value="z-a">
+        <button className="sort-btn" value="z-a">
           <FaSortAlphaDownAlt /> alphabetical
         </button>
       </div>
-      <div className="calc">
+      <div className="word-chart" id="word-chart">
         {chart.map(w => (
           <p key={w.word}>
             {w.word}: <span>{w.occurrences}</span>

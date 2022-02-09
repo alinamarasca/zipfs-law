@@ -8,6 +8,10 @@ span {
   font-size: 1.2rem;
 }
 
+h2 {
+  color: $drk-color;
+}
+
 .input-area {
   @extend %work-area;
 
@@ -50,10 +54,21 @@ span {
     grid-area: content;
     @extend %card;
   }
+  .sorting-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .sort-btn {
+      @extend %sort-btn;
+      color: $drk-color;
+    }
+  }
 }
 
 .control {
   @extend %control;
+
   .sort {
     @extend %sort-btn;
     background-color: $pink-color;

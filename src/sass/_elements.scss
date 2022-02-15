@@ -9,9 +9,6 @@
   border: none;
   padding: 1em;
   margin: auto;
-
-  @media only screen and (max-width: 800px) {
-  }
 }
 
 %card-active {
@@ -37,12 +34,8 @@
   grid-template-areas:
     "title ."
     "content control";
-
-  // @media only screen and (max-width: 1000px) {
-  //   display: grid;
-  //   width: 100%;
-  // }
 }
+
 @mixin round-btn($bgr-color, $text-color) {
   background-color: $bgr-color;
   border-radius: 50%;
@@ -53,7 +46,7 @@
   border: none;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
   letter-spacing: 2px;
   z-index: 999;
 
@@ -66,14 +59,10 @@
     //   $lightness: -6%
     // );
   }
-
-  @media only screen and (max-width: 800px) {
-    font-size: 0.8rem;
-  }
 }
 
 %sort-btn {
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 2vw, 1rem);
   width: 150px;
   height: 2em;
   opacity: 0.7;
@@ -91,10 +80,4 @@
 %control {
   grid-area: control;
   position: relative;
-
-  .submit {
-    position: absolute;
-    top: 30px;
-    left: 15px;
-  }
 }

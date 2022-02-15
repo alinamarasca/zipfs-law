@@ -1,13 +1,12 @@
 import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import WordChart from "./WordChart";
-// import { CopyToClipboard } from "react-copy-to-clipboard";
 
 function Output() {
   const { stats } = useContext(StatsContext);
 
   return (
-    <div className="output-area">
+    <div className="output-area" id="output-area">
       <p className="section-title">Your text has:</p>
       <div className="results" id="results">
         <div className="general-stats" id="general-stats">

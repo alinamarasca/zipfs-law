@@ -7,7 +7,7 @@ function Input() {
 
   return (
     <div className="input-area" id="input-area">
-      <p className="section-title">Insert your text here:</p>
+      <p className="section-title">Paste text:</p>
       <form id="text">
         <textarea
           onChange={e => setText(e.currentTarget.value)}

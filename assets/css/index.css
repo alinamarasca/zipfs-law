@@ -9,6 +9,7 @@
   padding: 1em;
   margin: auto;
 }
+
 .input-area textarea:focus {
   outline: none;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.4);
@@ -23,7 +24,7 @@
 }
 
 .output-area .sorting-options .sort-btn, .control .sort {
-  font-size: 1rem;
+  font-size: clamp(0.7rem, 2vw, 1rem);
   width: 150px;
   height: 2em;
   opacity: 0.7;
@@ -41,11 +42,6 @@
   grid-area: control;
   position: relative;
 }
-.control .submit {
-  position: absolute;
-  top: 30px;
-  left: 15px;
-}
 
 body {
   background-color: #e097a6;
@@ -55,7 +51,7 @@ header {
   font-family: "Calistoga", cursive;
   font-size: 1.2rem;
   color: #69303b;
-  margin: 1em 0 2em;
+  margin: 1em 0 0.5em;
   padding: 1em;
   border-radius: 10px;
   display: grid;
@@ -133,6 +129,9 @@ h2 {
   display: flex;
   flex-direction: column;
 }
+.input-area .control {
+  padding: 1em;
+}
 .input-area #submit {
   grid-area: control;
   background-color: #952349;
@@ -144,7 +143,7 @@ h2 {
   border: none;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
   letter-spacing: 2px;
   z-index: 999;
   margin: 0 auto;
@@ -152,11 +151,6 @@ h2 {
 }
 .input-area #submit:hover {
   background-color: #69303b;
-}
-@media only screen and (max-width: 800px) {
-  .input-area #submit {
-    font-size: 0.8rem;
-  }
 }
 
 .output-area {
@@ -184,6 +178,9 @@ h2 {
   color: #69303b;
 }
 
+.control {
+  padding: 1em;
+}
 .control .sort {
   background-color: #952349;
   color: #fff;
@@ -199,24 +196,13 @@ h2 {
   border: none;
   text-transform: uppercase;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: clamp(0.8rem, 2vw, 1.25rem);
   letter-spacing: 2px;
   z-index: 999;
   margin: auto;
 }
 .control #copy:hover {
   background-color: #69303b;
-}
-@media only screen and (max-width: 800px) {
-  .control #copy {
-    font-size: 0.8rem;
-  }
-}
-@media only screen and (max-width: 800px) {
-  .control {
-    display: flex;
-    flex-wrap: wrap;
-  }
 }
 
 a {

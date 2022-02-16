@@ -1,7 +1,8 @@
 import { React, useState, useContext } from "react";
 import StatsContext from "../context/StatsContext";
+import countWords from "../logic/countWords";
 
-function Input() {
+function Input({ setChart }) {
   const [text, setText] = useState("here here we we we go go go go again");
   const { setStats } = useContext(StatsContext);
 
@@ -24,7 +25,7 @@ function Input() {
             e.preventDefault();
             if (text.length !== 0) {
               setStats(text);
-              // console.log(text.split(" "));
+              setChart(countWords(text));
             }
           }}
           form="text"

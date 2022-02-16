@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import StatsContext from "../context/StatsContext";
 import {
   FaSortAlphaDown,
@@ -8,9 +8,9 @@ import {
 } from "react-icons/fa";
 import countWords from "../logic/countWords";
 
-function WordChart() {
+function WordChart({ chart, setChart }) {
   const { stats } = useContext(StatsContext);
-
+  // const [chart, setChart] = useState(stats);
   console.log("set with obj", countWords(stats));
 
   const highToLowOccurrence = arr => {
@@ -49,7 +49,7 @@ function WordChart() {
     if (sortBy === "z-a") {
       sorted = reversedAlphabeticalOrder(countWords(stats));
     }
-    console.log(sorted);
+    setChart(sorted);
   };
 
   return (
@@ -77,14 +77,13 @@ function WordChart() {
         </button>
       </div>
       <div className="word-chart" id="word-chart">
-        {/* {console.log([...stats])} */}
-        {countWords(stats)
-          ? countWords(stats).map(w => (
+        {chart
+          ? chart.map(w => (
               <p key={w.word}>
                 {w.word}: <span>{w.occurrences}</span>
               </p>
             ))
-          : "-"}
+          : null}
       </div>
     </div>
   );

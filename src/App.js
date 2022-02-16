@@ -14,16 +14,17 @@ import AboutPage from "./components/pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
 import StatsContext from "./context/StatsContext";
 
-import textLength from "./logic/textLength";
-import totalLetters from "./logic/totalLetters";
-import shortestWord from "./logic/shortestWord";
-import shortestWords from "./logic/shortestWords";
-import longestWord from "./logic/longestWord";
-import longestWords from "./logic/longestWords";
-import countWords from "./logic/countWords";
+// import textLength from "./logic/textLength";
+// import totalLetters from "./logic/totalLetters";
+// import shortestWord from "./logic/shortestWord";
+// import shortestWords from "./logic/shortestWords";
+// import longestWord from "./logic/longestWord";
+// import longestWords from "./logic/longestWords";
+// import countWords from "./logic/countWords";
 
 function App() {
   const [stats, setStats] = useState("");
+  const [chart, setChart] = useState("");
 
   // const [stats, setStats] = useState({
   //   totalLetters: 0,
@@ -60,8 +61,8 @@ function App() {
                   path="/zipfs-law/index"
                   element={
                     <>
-                      <Input />
-                      <Output />
+                      <Input setChart={setChart} />
+                      <Output chart={chart} setChart={setChart} />
                       {window.location.pathname !== "/zipfs-law/about" && (
                         <AboutIconLink />
                       )}

@@ -10,8 +10,8 @@ import totalDigits from "../logic/totalDigits";
 import textLength from "../logic/textLength";
 import countWords from "../logic/countWords";
 
-function Output() {
-  const { stats, chart } = useContext(StatsContext);
+function Output({ chart, setChart }) {
+  const { stats } = useContext(StatsContext);
   // const { chart, setChart } = useState(countWords(stats));
 
   return (
@@ -39,7 +39,7 @@ function Output() {
             long: {longestWords(stats).join(", ")}
           </p>{" "}
         </div>
-        <WordChart />
+        <WordChart chart={chart} setChart={setChart} />
       </div>
 
       <div className="control output-control">

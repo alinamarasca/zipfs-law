@@ -1,11 +1,11 @@
 import textToArray from "./textToArray";
 
 const longestWord = text => {
-  const words = textToArray(text);
-  const longest = words.reduce((longestWord, currentWord) => {
+  const array = textToArray(text);
+  const length = array.reduce((longestWord, currentWord) => {
     return currentWord.length > longestWord.length ? currentWord : longestWord;
-  }, words[0]);
-  return longest.length;
+  }, array[0]).length;
+  return length;
 };
 
 export default longestWord;

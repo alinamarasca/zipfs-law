@@ -1,8 +1,8 @@
 import textToArray from "./textToArray";
 
 const countWords = text => {
-  const arr = textToArray(text),
-    wordMap = new Map();
+  const arr = textToArray(text);
+  const wordMap = new Map();
   for (const word of arr) {
     wordMap.has(word)
       ? wordMap.set(word, wordMap.get(word) + 1)

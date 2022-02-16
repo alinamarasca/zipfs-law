@@ -1,6 +1,6 @@
 const totalLetters = text => {
-  // calculate words
-  let letterCount = text.replace(/\s+/g, "").length;
+  const onlyLetters = text.replace(/[!?@#$%^&*:;.,"'0-9]/g, "");
+  let letterCount = onlyLetters.replace(/\s+/g, "").length;
   return letterCount;
 };
 

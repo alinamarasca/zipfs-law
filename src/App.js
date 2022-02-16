@@ -23,32 +23,34 @@ import longestWords from "./logic/longestWords";
 import countWords from "./logic/countWords";
 
 function App() {
-  const [stats, setStats] = useState({
-    totalLetters: 0,
-    totalWords: 0,
-    shortestWord: 0,
-    shortestWords: [],
-    longestWord: 0,
-    longestWords: [],
-    wordChart: []
-  });
+  const [stats, setStats] = useState("");
 
-  const updateStats = text => {
-    setStats({
-      totalWords: textLength(text),
-      totalLetters: totalLetters(text),
-      shortestWord: shortestWord(text),
-      shortestWords: shortestWords(text),
-      longestWord: longestWord(text),
-      longestWords: longestWords(text),
-      wordChart: countWords(text)
-    });
-  };
+  // const [stats, setStats] = useState({
+  //   totalLetters: 0,
+  //   totalWords: 0,
+  //   shortestWord: 0,
+  //   shortestWords: [],
+  //   longestWord: 0,
+  //   longestWords: [],
+  //   wordChart: []
+  // });
+
+  // const updateStats = text => {
+  //   setStats({
+  //     totalWords: textLength(text),
+  //     totalLetters: totalLetters(text),
+  //     shortestWord: shortestWord(text),
+  //     shortestWords: shortestWords(text),
+  //     longestWord: longestWord(text),
+  //     longestWords: longestWords(text),
+  //     wordChart: countWords(text)
+  //   });
+  // };
 
   return (
     <>
       <React.StrictMode>
-        <StatsContext.Provider value={{ stats, updateStats }}>
+        <StatsContext.Provider value={{ stats, setStats }}>
           <div className="wrapper">
             <Header />
             <Router>

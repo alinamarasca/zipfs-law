@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import {
   FaSortAlphaDown,
@@ -6,8 +6,13 @@ import {
   FaSortAmountDownAlt,
   FaSortAmountDown
 } from "react-icons/fa";
+import countWords from "../logic/countWords";
 
 function WordChart() {
+  const { stats } = useContext(StatsContext);
+
+  console.log("set with obj", countWords(stats));
+
   const highToLowOccurrence = arr => {
     const sorted = arr.sort((a, b) => (a.occurrences < b.occurrences ? 1 : -1));
     return sorted;
@@ -28,27 +33,23 @@ function WordChart() {
     return sorted;
   };
 
-  const { stats } = useContext(StatsContext);
-  let chart = stats.wordChart;
-  const [data, setData] = useState([chart]);
-
   const sortResults = e => {
     const sortBy = e.target.value;
+    console.log("res", stats);
     let sorted = [];
-
     if (sortBy === "low-high") {
-      sorted = lowToHighOccurrence(chart);
+      sorted = lowToHighOccurrence(countWords(stats));
     }
     if (sortBy === "high-low") {
-      chart = highToLowOccurrence(chart);
+      sorted = highToLowOccurrence(countWords(stats));
     }
     if (sortBy === "a-z") {
-      chart = alphabeticalOrder(chart);
+      sorted = alphabeticalOrder(countWords(stats));
     }
     if (sortBy === "z-a") {
-      chart = reversedAlphabeticalOrder(chart);
+      sorted = reversedAlphabeticalOrder(countWords(stats));
     }
-    setData(sorted);
+    console.log(sorted);
   };
 
   return (
@@ -76,11 +77,14 @@ function WordChart() {
         </button>
       </div>
       <div className="word-chart" id="word-chart">
-        {chart.map(w => (
-          <p key={w.word}>
-            {w.word}: <span>{w.occurrences}</span>
-          </p>
-        ))}
+        {/* {console.log([...stats])} */}
+        {countWords(stats)
+          ? countWords(stats).map(w => (
+              <p key={w.word}>
+                {w.word}: <span>{w.occurrences}</span>
+              </p>
+            ))
+          : "-"}
       </div>
     </div>
   );

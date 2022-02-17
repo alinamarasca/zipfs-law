@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import {
   FaSortAlphaDown,
@@ -8,10 +8,8 @@ import {
 } from "react-icons/fa";
 import countWords from "../logic/countWords";
 
-function WordChart({ chart, setChart }) {
-  const { stats } = useContext(StatsContext);
-  // const [chart, setChart] = useState(stats);
-  console.log("set with obj", countWords(stats));
+function WordChart() {
+  const { stats, chart, setChart } = useContext(StatsContext);
 
   const highToLowOccurrence = arr => {
     const sorted = arr.sort((a, b) => (a.occurrences < b.occurrences ? 1 : -1));

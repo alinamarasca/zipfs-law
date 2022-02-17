@@ -14,44 +14,14 @@ import AboutPage from "./components/pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
 import StatsContext from "./context/StatsContext";
 
-// import textLength from "./logic/textLength";
-// import totalLetters from "./logic/totalLetters";
-// import shortestWord from "./logic/shortestWord";
-// import shortestWords from "./logic/shortestWords";
-// import longestWord from "./logic/longestWord";
-// import longestWords from "./logic/longestWords";
-// import countWords from "./logic/countWords";
-
 function App() {
   const [stats, setStats] = useState("");
   const [chart, setChart] = useState("");
 
-  // const [stats, setStats] = useState({
-  //   totalLetters: 0,
-  //   totalWords: 0,
-  //   shortestWord: 0,
-  //   shortestWords: [],
-  //   longestWord: 0,
-  //   longestWords: [],
-  //   wordChart: []
-  // });
-
-  // const updateStats = text => {
-  //   setStats({
-  //     totalWords: textLength(text),
-  //     totalLetters: totalLetters(text),
-  //     shortestWord: shortestWord(text),
-  //     shortestWords: shortestWords(text),
-  //     longestWord: longestWord(text),
-  //     longestWords: longestWords(text),
-  //     wordChart: countWords(text)
-  //   });
-  // };
-
   return (
     <>
       <React.StrictMode>
-        <StatsContext.Provider value={{ stats, setStats }}>
+        <StatsContext.Provider value={{ stats, setStats, chart, setChart }}>
           <div className="wrapper">
             <Header />
             <Router>
@@ -61,8 +31,8 @@ function App() {
                   path="/zipfs-law/index"
                   element={
                     <>
-                      <Input setChart={setChart} />
-                      <Output chart={chart} setChart={setChart} />
+                      <Input />
+                      <Output />
                       {window.location.pathname !== "/zipfs-law/about" && (
                         <AboutIconLink />
                       )}

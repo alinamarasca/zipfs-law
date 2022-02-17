@@ -2,9 +2,9 @@ import { React, useState, useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import countWords from "../logic/countWords";
 
-function Input({ setChart }) {
-  const [text, setText] = useState("here here we we we go go go go again");
-  const { setStats } = useContext(StatsContext);
+function Input() {
+  const [text, setText] = useState("");
+  const { setStats, setChart } = useContext(StatsContext);
 
   return (
     <div className="input-area" id="input-area">

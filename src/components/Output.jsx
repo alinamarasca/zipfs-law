@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import StatsContext from "../context/StatsContext";
 import WordChart from "./WordChart";
 import longestWord from "../logic/longestWord";
@@ -8,11 +8,9 @@ import shortestWords from "../logic/shortestWords";
 import totalLetters from "../logic/totalLetters";
 import totalDigits from "../logic/totalDigits";
 import textLength from "../logic/textLength";
-import countWords from "../logic/countWords";
 
-function Output({ chart, setChart }) {
+function Output() {
   const { stats } = useContext(StatsContext);
-  // const { chart, setChart } = useState(countWords(stats));
 
   return (
     <div className="output-area" id="output-area">
@@ -39,7 +37,7 @@ function Output({ chart, setChart }) {
             long: {longestWords(stats).join(", ")}
           </p>{" "}
         </div>
-        <WordChart chart={chart} setChart={setChart} />
+        <WordChart />
       </div>
 
       <div className="control output-control">

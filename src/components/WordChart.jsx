@@ -33,7 +33,6 @@ function WordChart() {
 
   const sortResults = e => {
     const sortBy = e.target.value;
-    console.log("res", stats);
     let sorted = [];
     if (sortBy === "low-high") {
       sorted = lowToHighOccurrence(countWords(stats));

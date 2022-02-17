@@ -2,7 +2,9 @@ import { createContext } from "react";
 
 const StatsContext = createContext({
   stats: {},
-  updateStats: () => {}
+  updateStats: () => {},
+  chart: {},
+  updateChart: () => {}
 });
 
 export default StatsContext;

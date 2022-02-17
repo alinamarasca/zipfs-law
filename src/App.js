@@ -14,41 +14,14 @@ import AboutPage from "./components/pages/AboutPage";
 import AboutIconLink from "./components/AboutIconLink";
 import StatsContext from "./context/StatsContext";
 
-import textLength from "./logic/textLength";
-import totalLetters from "./logic/totalLetters";
-import shortestWord from "./logic/shortestWord";
-import shortestWords from "./logic/shortestWords";
-import longestWord from "./logic/longestWord";
-import longestWords from "./logic/longestWords";
-import countWords from "./logic/countWords";
-
 function App() {
-  const [stats, setStats] = useState({
-    totalLetters: 0,
-    totalWords: 0,
-    shortestWord: 0,
-    shortestWords: [],
-    longestWord: 0,
-    longestWords: [],
-    wordChart: []
-  });
-
-  const updateStats = text => {
-    setStats({
-      totalWords: textLength(text),
-      totalLetters: totalLetters(text),
-      shortestWord: shortestWord(text),
-      shortestWords: shortestWords(text),
-      longestWord: longestWord(text),
-      longestWords: longestWords(text),
-      wordChart: countWords(text)
-    });
-  };
+  const [stats, setStats] = useState("");
+  const [chart, setChart] = useState("");
 
   return (
     <>
       <React.StrictMode>
-        <StatsContext.Provider value={{ stats, updateStats }}>
+        <StatsContext.Provider value={{ stats, setStats, chart, setChart }}>
           <div className="wrapper">
             <Header />
             <Router>
